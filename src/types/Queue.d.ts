@@ -11,3 +11,12 @@ interface QueueItem extends NewCustomer {
 export type QueueFormProp = {
     onAdd: (customer: NewCustomer) => void;
 };
+
+export type QueueDisplayProps = {
+    queue: QueueItem[];
+    onUpdateStatus: (
+        id: number,
+        newStatus: "waiting" | "served" | "completed"
+    ) => void;
+    onRemove: (id: number) => void;
+}
