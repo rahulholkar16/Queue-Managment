@@ -1,1 +1,4 @@
 @import "tailwindcss";
+* {
+    font-family: system-ui, -apple-system, sans-serif;
+}
