@@ -5,7 +5,7 @@ interface NewCustomer {
 
 interface QueueItem extends NewCustomer {
     id: number;
-    status: "waiting" | "served" | "completed";
+    status: "waiting" | "serving" | "completed";
 };
 
 export type QueueFormProp = {
@@ -16,7 +16,7 @@ export type QueueDisplayProps = {
     queue: QueueItem[];
     onUpdateStatus: (
         id: number,
-        newStatus: "waiting" | "served" | "completed"
+        newStatus: "waiting" | "serving" | "completed"
     ) => void;
     onRemove: (id: number) => void;
 }
