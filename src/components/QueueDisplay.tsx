@@ -27,7 +27,7 @@ function QueueDisplay({ queue, onUpdateStatus, onRemove }: QueueDisplayProps) {
                 <div className="grid gap-4">
                     {queue.map((customer) => (
                         <div
-                            className="bg-[#1a1a1a] p-4 rounded-sm flex justify-between items-center"
+                            className="bg-[#1a1a1a] p-4 transition-all duration-300 rounded-sm flex justify-between items-center"
                             key={customer.id}
                         >
                             <div className="text-start">
@@ -49,7 +49,7 @@ function QueueDisplay({ queue, onUpdateStatus, onRemove }: QueueDisplayProps) {
                             <div className="flex gap-2">
                                 {customer.status === "waiting" && (
                                     <button
-                                        className="w-auto py-2 rounded-sm px-4 bg-[#4caf50] cursor-pointer"
+                                        className="w-auto py-2 transition-all duration-300 hover:bg-green-800 rounded-sm px-4 bg-[#4caf50] cursor-pointer"
                                         onClick={() =>
                                             onUpdateStatus(
                                                 customer.id,
@@ -62,7 +62,7 @@ function QueueDisplay({ queue, onUpdateStatus, onRemove }: QueueDisplayProps) {
                                 )}
                                 {customer.status === "serving" && (
                                     <button
-                                        className="w-auto rounded-sm py-2 px-4 bg-[#2196f3] cursor-pointer"
+                                        className="w-auto transition-all duration-300 hover:bg-sky-800 rounded-sm py-2 px-4 bg-[#2196f3] cursor-pointer"
                                         onClick={() =>
                                             onUpdateStatus(
                                                 customer.id,
@@ -73,7 +73,10 @@ function QueueDisplay({ queue, onUpdateStatus, onRemove }: QueueDisplayProps) {
                                         completed
                                     </button>
                                 )}
-                                <button className="w-auto rounded-sm py-2 px-4 bg-[#f44336] cursor-pointer" onClick={() => onRemove(customer.id)}>
+                                <button
+                                    className="w-auto transition-all duration-300 hover:bg-red-800 rounded-sm py-2 px-4 bg-[#f44336] cursor-pointer"
+                                    onClick={() => onRemove(customer.id)}
+                                >
                                     Remove
                                 </button>
                             </div>

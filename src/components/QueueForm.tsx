@@ -50,7 +50,7 @@ function QueueForm({ onAdd }: QueueFormProp) {
 
             <button
                 type="submit"
-                className="w-full p-3 bg-[#646cff] text-[#ffffff] border-none rounded-sm cursor-pointer hover:opacity-70 flex items-center justify-center gap-2 text-base h-11.25"
+                className="w-full p-3 transition-all duration-300 bg-[#646cff] text-[#ffffff] border-none rounded-sm cursor-pointer hover:opacity-80 flex items-center justify-center gap-2 text-base h-11.25"
             >
                 <FaUserPlus />
                 Add Customer
