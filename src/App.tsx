@@ -1,6 +1,7 @@
 import { useState } from "react";
 import QueueForm from "./components/QueueForm";
 import type { NewCustomer, QueueItem } from "./types/Queue";
+import QueueDisplay from "./components/QueueDisplay";
 
 function App() {
     const [queue, setQueue] = useState<QueueItem[]>([]);
@@ -16,7 +17,15 @@ function App() {
         ]);
     };
 
-   
+    const updateQueue = (id: number, newStatus: QueueItem["status"]) => {
+        setQueue((prev) => prev.map(customer =>
+            customer.id === id ? { ...customer, status: newStatus } : customer
+        ))
+    };
+
+    const removeQueue = (id: number) => {
+        setQueue((prev) => prev.filter(customer => customer.id !== id))
+    };
     return (
         <div className="min-h-screen bg-[#1a1a1a] m-auto text-center p-8 text-white">
             <div className="m-8 text-center">
@@ -29,6 +38,7 @@ function App() {
             </div>
             <main className="grid gap-8 grid-cols-[350px_1fr]">
                 <QueueForm onAdd={addToQueue} />
+                <QueueDisplay queue={queue} onUpdateStatus={updateQueue} onRemove={removeQueue}/>
             </main>
         </div>
     );
